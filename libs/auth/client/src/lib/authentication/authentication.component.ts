@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'nx-angular-nest-template-authentication',
@@ -10,4 +11,18 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './authentication.component.scss',
 })
 export class AuthenticationComponent {
+  userAuthenticated = inject(AuthService).isLogged();
+  private readonly router = inject(Router);
+  
+  constructor(){
+    effect(() => {
+      if (this.userAuthenticated()){
+        this.navigateHome()
+      }
+    });
+  }
+
+  private navigateHome(): void {
+    this.router.navigate(['/']);
+  }
 }

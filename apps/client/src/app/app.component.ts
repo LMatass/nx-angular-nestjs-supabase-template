@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -10,4 +11,12 @@ import { RouterModule } from '@angular/router';
 })
 export class AppComponent {
   title = 'client';
+
+
+  private readonly http = inject(HttpClient);
+  checkApi() {
+    this.http.get('http://localhost:3000/api').subscribe((response) => {
+      console.log(response);
+    });
+  }
 }

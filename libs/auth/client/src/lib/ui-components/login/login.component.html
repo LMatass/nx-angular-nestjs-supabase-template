@@ -1,25 +1,25 @@
 <div class="p-8 shrink-0 w-full">
-    <h1 class="text-3xl font-bold mb-8">Welcome back!</h1>
+  <h1 class="text-3xl font-bold mb-8">Welcome back!</h1>
 
-    <form>
-      <div class="form-control">
-        <label class="label">
-          <span class="label-text">Email</span>
-        </label>
-        <input type="email" placeholder="Email" class="input input-bordered" required />
-      </div>
-      <div class="form-control">
-        <label class="label">
-          <span class="label-text">Password</span>
-        </label>
-        <input type="password" placeholder="Password" class="input input-bordered" required />
-        <label class="label mt-2">
-          <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-          <a [routerLink]="['/authentication/signup']" class="label-text-alt link link-hover">Don't have an account? <b>Sign Up Now!</b></a>
-        </label>
-      </div>
-      <div class="form-control mt-6">
-        <button class="btn btn-primary">Login</button>
-      </div>
-    </form>
-  </div>
+  <form (ngSubmit)="login()">
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Email</span>
+      </label>
+      <input type="email" [(ngModel)]="email" name="email" placeholder="Email" class="input input-bordered" required />
+    </div>
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Password</span>
+      </label>
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Password" class="input input-bordered" required />
+      <label class="label mt-2">
+        <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+        <a routerLink="/authentication/signup" class="label-text-alt link link-hover">Don't have an account? <b>Sign Up Now!</b></a>
+      </label>
+    </div>
+    <div class="form-control mt-6">
+      <button class="btn btn-primary" type="submit">Login</button>
+    </div>
+  </form>
+</div>

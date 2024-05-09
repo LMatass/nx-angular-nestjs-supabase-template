@@ -15,7 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-angular-nest-template/auth-client": ["libs/auth/client/src/index.ts"]
+      "@nx-angular-nest-template/auth-client": [
+        "libs/auth/client/src/index.ts"
+      ],
+      "@nx-angular-nest-template/auth-server": [
+        "libs/auth/server/src/index.ts"
+      ],
+      "@nx-angular-nest-template/client": ["apps/client/src"],
+      "@nx-angular-nest-template/core": ["libs/core/server/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
